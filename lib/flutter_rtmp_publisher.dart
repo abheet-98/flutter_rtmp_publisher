@@ -19,12 +19,15 @@ class RtmpStatus {
   final String streamName;
   final int cameraWidth;
   final int cameraHeight;
+  final int audiobitrate;
+
+  
 
   double get aspectRatio => height != 0 ? width / height : 1.0;
 
-  RtmpStatus._({this.width, this.height, this.fps, this.isStreaming, this.isStreamingPaused, this.cameraPosition, this.rtmpUrl, this.streamName, this.cameraWidth, this.cameraHeight});
+  RtmpStatus._({this.width, this.height, this.fps, this.isStreaming, this.isStreamingPaused, this.cameraPosition, this.rtmpUrl, this.streamName, this.cameraWidth, this.cameraHeight,this.audiobitrate});
 
-  RtmpStatus updateWith({int width, int height, int fps, bool isStreaming, bool isStreamingPaused, RtmpLiveViewCameraPosition cameraPosition, String rtmpUrl, String streamName, int cameraWidth, int cameraHeight}) {
+  RtmpStatus updateWith({int width, int height, int fps, bool isStreaming, bool isStreamingPaused, RtmpLiveViewCameraPosition cameraPosition, String rtmpUrl, String streamName, int cameraWidth, int cameraHeight,int audiobitrate}) {
     return RtmpStatus._(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -35,7 +38,8 @@ class RtmpStatus {
       rtmpUrl: rtmpUrl ?? this.rtmpUrl,
       streamName: streamName ?? this.streamName,
       cameraWidth: cameraWidth ?? this.cameraWidth,
-      cameraHeight: cameraHeight ?? this.cameraHeight);
+      cameraHeight: cameraHeight ?? this.cameraHeight,
+      audiobitrate: audiobitrate ?? this.audiobitrate);
   }
 }
 
@@ -75,14 +79,15 @@ class RtmpLiveViewController {
     }
   }
 
-  Future initialize({@required int width, @required int height, @required int fps, @required RtmpLiveViewCameraPosition cameraPosition, bool restartPreview = true}) async {
+  Future initialize({@required int width, @required int height, @required int fps, @required RtmpLiveViewCameraPosition cameraPosition,int audiobitrate, bool restartPreview = true}) async {
 
     await _initTex();
 
     status.value = status.value.updateWith(
       width: width, height: height, fps: fps,
       isStreaming: false, isStreamingPaused: false,
-      cameraPosition: cameraPosition);
+      cameraPosition: cameraPosition,
+      audiobitrate: audiobitrate);
 
     _sub = EventChannel('jp.espresso3389.flutter_rtmp_publisher.instance-$_tex').receiveBroadcastStream().listen((data) {
       if (data is String) {
@@ -129,7 +134,8 @@ class RtmpLiveViewController {
       'width': status.value.width,
       'height': status.value.height,
       'fps': status.value.fps,
-      'camera': status.value.cameraPosition == RtmpLiveViewCameraPosition.back ? 'back' : 'front'
+      'camera': status.value.cameraPosition == RtmpLiveViewCameraPosition.back ? 'back' : 'front',
+      'audiobitrate': status.value.audiobitrate
     });
 
     if (restartPreview)
