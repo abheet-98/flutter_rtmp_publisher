@@ -32,6 +32,7 @@ class CameraClient {
   CameraClient(Context context, CameraMode mode, int requestedWidth, int requestedHeight) {
     this.context = context;
     this.mode = mode;
+    System.out.println("Test run"+requestedWidth);
     this.requestedWidth = requestedWidth;
     this.requestedHeight = requestedHeight;
     this.cameraOpened = false;
@@ -108,6 +109,7 @@ class CameraClient {
     boolean isDesiredSizeFound = false;
     List<Camera.Size> sizes = params.getSupportedPreviewSizes();
     for (Camera.Size size : sizes) {
+      System.out.println(size.width,requestedWidth);
       if (size.width == requestedWidth && size.height == requestedHeight) {
         params.setPreviewSize(size.width, size.height);
         isDesiredSizeFound = true;
