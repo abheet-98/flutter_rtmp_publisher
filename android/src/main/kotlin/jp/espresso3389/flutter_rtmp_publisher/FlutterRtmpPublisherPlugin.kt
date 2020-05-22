@@ -62,7 +62,7 @@ class FlutterRtmpPublisherPlugin(
           val height = call.argument<Number>("height")!!.toInt()
           val fps = call.argument<Number>("fps")!!.toInt()
           val camera = if (call.argument<String>("camera") == "back") CameraMode.BACK else CameraMode.FRONT
-          val audioBitRate = AUDIO_BITRATE
+          val audioBitRate = if(call.argument<Number>("audiobitrate")=="null") AUDIO_BITRATE else call.argument<Number>("audiobitrate")!!.toInt()
           val videoBitRate = width * height * fps / BITRATE_MAGIC_DIVIDER
           rtmpPub.setCaptureConfig(width, height, fps, camera, audioBitRate, videoBitRate)
           result.success(true)
