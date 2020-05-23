@@ -59,6 +59,8 @@ class FlutterRtmpPublisherPlugin(
           val tex = call.argument<Number>("tex")!!.toLong()
           val rtmpPub = textures[tex]
           val width = call.argument<Number>("width")!!.toInt()
+          print(width)
+          
           val height = call.argument<Number>("height")!!.toInt()
           val fps = call.argument<Number>("fps")!!.toInt()
           val camera = if (call.argument<String>("camera") == "back") CameraMode.BACK else CameraMode.FRONT
