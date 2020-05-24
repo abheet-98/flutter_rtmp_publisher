@@ -188,6 +188,8 @@ class CameraClient {
       degrees = (cameraOrientation - degrees + 360) % 360;
     }
     cameraWhFlipped = degrees == 90 || degrees == 270;
+    camera.stopPreview();
     camera.setDisplayOrientation(degrees);
+    camera.startPreview();
   }
 }
