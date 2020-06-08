@@ -6,7 +6,6 @@ enum RtmpLiveViewCameraPosition {
   front,
   back
 }
-int widthh,heightt;
 
 
 class RtmpStatus {
