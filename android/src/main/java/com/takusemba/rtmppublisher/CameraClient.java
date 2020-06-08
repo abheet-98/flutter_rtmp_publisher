@@ -32,7 +32,7 @@ class CameraClient {
   CameraClient(Context context, CameraMode mode, int requestedWidth, int requestedHeight) {
     this.context = context;
     this.mode = mode;
-    Log.i("Test rsbfksdbkdbfkdbjfgbksdsjfsdbun"+requestedWidth);
+    Log.i("Test rsbfksdbkdbfkdbjfgbksdsjfsdbun",requestedWidth);
     this.requestedWidth = requestedWidth;
     this.requestedHeight = requestedHeight;
     this.cameraOpened = false;
