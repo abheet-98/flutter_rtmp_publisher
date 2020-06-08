@@ -6,6 +6,7 @@ enum RtmpLiveViewCameraPosition {
   front,
   back
 }
+int widthh,heightt;
 
 
 class RtmpStatus {
@@ -23,7 +24,7 @@ class RtmpStatus {
 
   
 
-  double get aspectRatio => height != 0 ? width / height : 1.0;
+  double get aspectRatio => heightt != 0 ? widthh / heightt : 1.0;
 
   RtmpStatus._({this.width, this.height, this.fps, this.isStreaming, this.isStreamingPaused, this.cameraPosition, this.rtmpUrl, this.streamName, this.cameraWidth, this.cameraHeight,this.audiobitrate});
 
@@ -254,6 +255,8 @@ class _RtmpLiveViewState extends State<RtmpLiveView> with WidgetsBindingObserver
 
   @override
   Widget build(BuildContext context) {
+    widthh = (MediaQuery.of(context).size.width*MediaQuery.of(context).devicePixelRatio).round();
+    heightt = (MediaQuery.of(context).size.height*MediaQuery.of(context).devicePixelRatio).round();
     return ValueListenableBuilder<RtmpStatus>(
       valueListenable: widget.controller.status,
       builder: (context, status, child) {
