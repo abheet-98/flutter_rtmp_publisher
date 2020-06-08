@@ -88,6 +88,8 @@ class RtmpLiveViewController {
       isStreaming: false, isStreamingPaused: false,
       cameraPosition: cameraPosition,
       audiobitrate: audiobitrate);
+      
+      print("ppppppppp"+status.value.width.toString());
 
     _sub = EventChannel('jp.espresso3389.flutter_rtmp_publisher.instance-$_tex').receiveBroadcastStream().listen((data) {
       if (data is String) {
@@ -132,6 +134,7 @@ class RtmpLiveViewController {
     await _channel.invokeMethod('initCaptureConfig', {
       'tex': _tex,
       'width': status.value.width,
+      print(")
       'height': status.value.height,
       'fps': status.value.fps,
       'camera': status.value.cameraPosition == RtmpLiveViewCameraPosition.back ? 'back' : 'front',
