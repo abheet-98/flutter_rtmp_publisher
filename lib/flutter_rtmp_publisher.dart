@@ -30,7 +30,7 @@ class RtmpStatus {
 
   RtmpStatus._({this.width, this.height, this.fps, this.isStreaming, this.isStreamingPaused, this.cameraPosition, this.rtmpUrl, this.streamName, this.cameraWidth, this.cameraHeight,this.audiobitrate,this.widthh,this.heightt});
 
-  RtmpStatus updateWith({int width, int height, int fps, bool isStreaming, bool isStreamingPaused, RtmpLiveViewCameraPosition cameraPosition, String rtmpUrl, String streamName, int cameraWidth, int cameraHeight,int audiobitrate}) {
+  RtmpStatus updateWith({int width, int height, int fps, bool isStreaming, bool isStreamingPaused, RtmpLiveViewCameraPosition cameraPosition, String rtmpUrl, String streamName, int cameraWidth, int cameraHeight,int audiobitrate,int widthh,int heightt}) {
     return RtmpStatus._(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -42,7 +42,9 @@ class RtmpStatus {
       streamName: streamName ?? this.streamName,
       cameraWidth: cameraWidth ?? this.cameraWidth,
       cameraHeight: cameraHeight ?? this.cameraHeight,
-      audiobitrate: audiobitrate ?? this.audiobitrate);
+      audiobitrate: audiobitrate ?? this.audiobitrate,
+    widthh: widthh ?? this.widthh,
+    heightt: heightt ?? this.heightt);
   }
 }
 
