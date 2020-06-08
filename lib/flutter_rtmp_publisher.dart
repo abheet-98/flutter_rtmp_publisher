@@ -92,7 +92,9 @@ class RtmpLiveViewController {
       width: width, height: height, fps: fps,
       isStreaming: false, isStreamingPaused: false,
       cameraPosition: cameraPosition,
-      audiobitrate: audiobitrate);
+      audiobitrate: audiobitrate,
+    widthh: widthh,
+    heightt:heightt);
       
       Log.i("ppppppppp",status.value.width.toString());
       print("ppppppppp"+status.value.width.toString());
