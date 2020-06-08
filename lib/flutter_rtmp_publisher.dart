@@ -82,7 +82,7 @@ class RtmpLiveViewController {
     }
   }
 
-  Future initialize({@required int width, @required int height, @required int fps, @required RtmpLiveViewCameraPosition cameraPosition,int audiobitrate, bool restartPreview = true}) async {
+  Future initialize({@required int width, @required int height, @required int fps, @required RtmpLiveViewCameraPosition cameraPosition,int audiobitrate, bool restartPreview = true,int widthh,int heightt}) async {
 
     await _initTex();
 
