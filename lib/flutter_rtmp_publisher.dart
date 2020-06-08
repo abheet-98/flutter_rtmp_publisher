@@ -21,12 +21,14 @@ class RtmpStatus {
   final int cameraWidth;
   final int cameraHeight;
   final int audiobitrate;
+  sinal int widthh;
+  final int heightt;
 
   
 
   double get aspectRatio => heightt != 0 ? widthh / heightt : 1.0;
 
-  RtmpStatus._({this.width, this.height, this.fps, this.isStreaming, this.isStreamingPaused, this.cameraPosition, this.rtmpUrl, this.streamName, this.cameraWidth, this.cameraHeight,this.audiobitrate});
+  RtmpStatus._({this.width, this.height, this.fps, this.isStreaming, this.isStreamingPaused, this.cameraPosition, this.rtmpUrl, this.streamName, this.cameraWidth, this.cameraHeight,this.audiobitrate,this.widthh,this.heightt});
 
   RtmpStatus updateWith({int width, int height, int fps, bool isStreaming, bool isStreamingPaused, RtmpLiveViewCameraPosition cameraPosition, String rtmpUrl, String streamName, int cameraWidth, int cameraHeight,int audiobitrate}) {
     return RtmpStatus._(
