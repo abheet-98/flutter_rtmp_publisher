@@ -21,7 +21,7 @@ class RtmpStatus {
   final int cameraWidth;
   final int cameraHeight;
   final int audiobitrate;
-  sinal int widthh;
+  final int widthh;
   final int heightt;
 
   
