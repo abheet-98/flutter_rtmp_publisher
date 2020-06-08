@@ -147,7 +147,9 @@ class RtmpLiveViewController {
       'height': status.value.height,
       'fps': status.value.fps,
       'camera': status.value.cameraPosition == RtmpLiveViewCameraPosition.back ? 'back' : 'front',
-      'audiobitrate': status.value.audiobitrate
+      'audiobitrate': status.value.audiobitrate,
+      'widthh': status.value.widthh,
+      'heightt': status.value.heightt,
     });
 
     if (restartPreview)
