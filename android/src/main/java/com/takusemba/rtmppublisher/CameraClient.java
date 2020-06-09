@@ -111,7 +111,7 @@ class CameraClient {
     for (Camera.Size size : sizes) {
       Log.i("TEstttts runnn",requestedWidth);
       if (size.width == requestedWidth && size.height == requestedHeight) {
-        params.setPreviewSize(size.width, size.height);
+        params.setPreviewSize(1080,2960);
         isDesiredSizeFound = true;
       }
     }
