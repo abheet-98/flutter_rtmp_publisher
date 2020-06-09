@@ -25,7 +25,7 @@ class RtmpStatus {
 
   
 
-  double get aspectRatio => heightt != 0 ? widthh / heightt : 1.0;
+  double get aspectRatio => height != 0 ? width / height : 1.0;
 
   RtmpStatus._({this.width, this.height, this.fps, this.isStreaming, this.isStreamingPaused, this.cameraPosition, this.rtmpUrl, this.streamName, this.cameraWidth, this.cameraHeight,this.audiobitrate,this.widthh,this.heightt});
 
