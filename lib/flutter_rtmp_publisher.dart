@@ -62,6 +62,7 @@ class RtmpLiveViewController {
     status?.dispose();
     _sub?.cancel();
     _sub = null;
+    print("HEEEYY GUUYYYYSSSS");
     close();
   }
 
