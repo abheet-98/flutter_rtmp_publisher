@@ -163,7 +163,7 @@ public class RtmpPublisher implements SurfaceTexture.OnFrameAvailableListener, M
   }
 
   private int getDeviceRotation() {
-    WindowManager windowManager = (WindowManager) registrar.getActiveContext().getSystemService(Context.WINDOW_SERVICE);
+    WindowManager windowManager = (WindowManager) registrar.getActivityContext().getSystemService(Context.WINDOW_SERVICE);
     return windowManager.getDefaultDisplay().getRotation();
   }
 
